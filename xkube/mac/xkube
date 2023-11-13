@@ -213,8 +213,13 @@ function attach () {
     attach
   elif [[ $args -ge 1 && $args -le ${#pods[@]} ]]; then
     signin $(($args-1))
-    echo
-    attach
+    if [ $? -eq 137 ]; then
+      echo
+      get_pods
+    else
+      echo
+      attach
+    fi
   else
     if [ -n "$args" ];then
       kw=$args

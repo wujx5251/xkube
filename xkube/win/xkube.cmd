@@ -251,6 +251,10 @@ if %pod% gtr 0 if %pod% leq %cnt% (
     call:info !idx!
   ) else (
     call:signin !idx!
+    if errorlevel equ 137 (
+      call:get_pods
+      exit /b
+    )
   )
   echo.
   call:attach
