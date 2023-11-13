@@ -1,0 +1,4 @@
+# Mac OS X files
+.DS_Store
+*.zip
+config
